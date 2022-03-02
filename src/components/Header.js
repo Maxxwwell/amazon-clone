@@ -2,12 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { useNavigate, Link } from 'react-router-dom';
+import { useStateValue } from '../context api/StateProvider';
+
 
 
 function Header() {
+
+    const [{ basket }, dispatch] = useStateValue();
+    const navigate = useNavigate();
     return (
         <HeaderContainer>
-            <Logo src="https://www.sahirkarani.com/images/amazon.png" />
+            <Link to="/">
+                <Logo src="https://www.sahirkarani.com/images/amazon.png" />
+            </Link>
             <input type="text" />
             <Icon>
                 <SearchIcon />
@@ -26,12 +34,12 @@ function Header() {
                     <h3>Prime</h3>
                 </HeaderOption>
 
-                <Basket>
+                <Basket onClick={() => navigate("/checkout")}>
                     <ShoppingBasketIcon />
-                    <span>0</span>
-
+                    <span>{basket?.length}</span>
                 </Basket>
-            </HeaderNav> 
+
+            </HeaderNav>
 
 
 
@@ -96,13 +104,20 @@ const HeaderOption = styled.div`
     margin-left: 10px;
     margin-right: 10px;
     color: white;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.09);
+    }
 `
-
 
 const Basket = styled.div`
     color: white;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.09);
+    }
 
     span {
         margin-left: 10px;
