@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import Header from '../components/Header'
 import Product from '../components/Product'
 
 function Home() {
     return (
+        <HeaderContainer>
+            <Header />
+            
         <Homme>
             <HomeContainer>
                 <Banner>
@@ -60,19 +64,22 @@ function Home() {
                 </HomeRow>
             </HomeContainer>
         </Homme>
-
+        </HeaderContainer>
     )
 }
 
 export default Home
 
+const HeaderContainer = styled.div`
+    width: 100%;
+`
 const Homme = styled.div`
     display: flex;
      justify-content: center;
      flex-direction: column;
+     max-width: 1500px;
      margin-left: auto;
      margin-right: auto;
-     max-width: 1500px;
     overflow-y: scroll;
      overflow-x: hidden;
      &::-webkit-scrollbar {

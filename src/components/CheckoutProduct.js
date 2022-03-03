@@ -45,7 +45,8 @@ const CheckoutProductt = styled.div`
 
     img {
         height: 200px;
-        width: 220px;
+        width: 230px;
+        max-width: 400px;
         object-fit: cover;
         
     }

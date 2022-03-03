@@ -4,13 +4,20 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useNavigate, Link } from 'react-router-dom';
 import { useStateValue } from '../context api/StateProvider';
-
+import { auth } from '../firebase';
 
 
 function Header() {
 
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
     const navigate = useNavigate();
+
+    function handleAuth() {
+        if (user) {
+            auth.signOut();
+        }
+    }
+
     return (
         <HeaderContainer>
             <Link to="/">
@@ -21,14 +28,19 @@ function Header() {
                 <SearchIcon />
             </Icon>
             <HeaderNav>
-                <HeaderOption>
-                    <p>hello</p>
-                    <h3>Sign in</h3>
+                <HeaderOption onClick={() => navigate(!user && "/signup")}>
+                    <SignOut onClick={handleAuth}>
+                        <p>hello</p>
+                        <h3>{user ? 'Sign Out' : 'Sign In'}</h3>
+
+                    </SignOut>
                 </HeaderOption>
+
                 <HeaderOption>
                     <p>Returns</p>
                     <h3>& Orders</h3>
                 </HeaderOption>
+
                 <HeaderOption>
                     <p>Your </p>
                     <h3>Prime</h3>
@@ -53,11 +65,13 @@ export default Header
 const HeaderContainer = styled.div`
     display: flex;
     height: 60px;
+    width: 100%;
     align-items: center;
     background-color: #131921;
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    z-index: 10;
+    
 
     input {
         height: 26px;
@@ -123,4 +137,8 @@ const Basket = styled.div`
         margin-left: 10px;
         margin-right: 15px;
     }
+`
+
+const SignOut = styled.div`
+
 `
