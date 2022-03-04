@@ -5,7 +5,7 @@ import Product from '../components/Product'
 
 function Home() {
     return (
-        <HeaderContainer>
+        <HeaderContainer data-testid="home-page">
             <Header />
             
         <Homme>
