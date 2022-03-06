@@ -7,6 +7,7 @@ import Signup from './pages/Signup';
 import { useEffect } from 'react';
 import { auth } from './firebase';
 import { useStateValue } from './context api/StateProvider';
+import Payment from './pages/Payment';
 
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
         <Routes>
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/payment" element={<Payment />} />
+
           <Route path="/" element={<Home />} />
         </Routes>
 

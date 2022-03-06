@@ -45,7 +45,7 @@ const CheckoutProductt = styled.div`
 
     img {
         height: 200px;
-        width: 230px;
+        width: 220px;
         max-width: 400px;
         object-fit: cover;
         
@@ -55,7 +55,7 @@ const CheckoutProductt = styled.div`
 const CheckoutProductInfo = styled.div`
     padding-left: 20px;
     margin-top: 10px;
-    max-width: 200px;
+    max-width: 400px;
     p {
         font-size: 15px;
         font-weight: 700;

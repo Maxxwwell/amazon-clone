@@ -31,7 +31,7 @@ function Header() {
                 {/* if there is no user only then do we navigate to sign up */}
                 <HeaderOption onClick={() => navigate(!user && "/signup")}>
                     <SignOut onClick={handleAuth}>
-                        <p>hello</p>
+                        <p>hello, {!user ? 'Guest' : user.email}</p>
                         <h3>{user ? 'Sign Out' : 'Sign In'}</h3>
 
                     </SignOut>
