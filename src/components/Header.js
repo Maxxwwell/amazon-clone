@@ -28,6 +28,7 @@ function Header() {
                 <SearchIcon />
             </Icon>
             <HeaderNav>
+                {/* if there is no user only then do we navigate to sign up */}
                 <HeaderOption onClick={() => navigate(!user && "/signup")}>
                     <SignOut onClick={handleAuth}>
                         <p>hello</p>

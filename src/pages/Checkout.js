@@ -7,7 +7,7 @@ import { useStateValue } from '../context api/StateProvider';
 
 
 function Checkout() {
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
 
     return (
         <CheckoutPage>
@@ -16,6 +16,7 @@ function Checkout() {
                 <CheckoutLeft>
                     <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/pc_banner_2.jpg" alt="" />
                     <CheckoutTitle>
+                        <h5>Hello, {user?.email}</h5>
                         <h2>Your shopping basket</h2>
                         {basket.map(item => (
                             <CheckoutProduct
