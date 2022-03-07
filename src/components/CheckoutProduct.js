@@ -45,9 +45,9 @@ const CheckoutProductt = styled.div`
 
     img {
         height: 200px;
-        width: 220px;
+        width: 205px;
         max-width: 400px;
-        object-fit: cover;
+        object-fit: contain;
         
     }
 `
